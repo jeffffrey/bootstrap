@@ -7,6 +7,7 @@ SPACEMACS_CONF=~/.spacemacs
 EMACSDIR=~/.emacs.d
 BOOTSTRAP_DIR=~/bootstrap
 NVMDIR=~/.nvm
+GITCONFIG=~/.gitconfig
 
 NODE_VERSION=6.10
 
@@ -31,6 +32,7 @@ setup_common(){
     ln -s bootstrap/.zshrc $ZSHRC
     ln -s bootstrap/.emacs.d $EMACSDIR
     ln -s bootstrap/.spacemacs $SPACEMACS_CONF
+    ln -s bootstrap/.gitconfig $GITCONFIG
 
     echo "Install oh-my-zsh"
     install_zsh
@@ -250,6 +252,11 @@ clean_up () {
     if [ -d $NVMDIR ] ; then
         echo "remove nvm config and resources"
         rm -rf $NVMDIR
+    fi
+    
+    if [ -f $GITCONFIG ] ; then
+        echo "remove git config"
+        rm $GITCONFIG
     fi
 
 }
